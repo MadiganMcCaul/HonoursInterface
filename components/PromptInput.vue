@@ -45,7 +45,27 @@ export default Vue.extend({
   methods: {
     async sendPrompt() {
       await this.$axios
-        .$post("http://localhost:3000/api/prompt/")
+        .$post("http://localhost:3000/api/prompt/", {
+          Prompt: {
+            model: "gpt-3.5-turbo",
+            messages: [
+              {
+                role: "system",
+                content:
+                  "You are a expert on Motivational Interviewing, and will be using your expertise to train health professionals on this topic. You will be provided with scenarios that require behavioral change in clients alongside 4 options for the health professional to select, please choose the most suitable option that fits motivational interviewing. Motivational key concepts should include rolling with resistance, eliciting and strengthening an individual's own motivation to change and exploring their ambivalence and resistance to change.",
+              },
+              {
+                role: "user",
+                content: this.prompt.query,
+              },
+            ],
+            temperature: 1,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          },
+        })
         .then((response) => {
           console.log(response);
         })
