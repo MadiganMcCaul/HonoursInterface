@@ -26,6 +26,14 @@
 
 <script lang="ts">
 import Vue from "vue";
+const { Configuration, OpenAIApi } = require("openai");
+
+let configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+delete configuration.baseOptions.headers["User-Agent"];
+
+const openai = new OpenAIApi(configuration);
 export default Vue.extend({
   data() {
     return {
@@ -36,11 +44,13 @@ export default Vue.extend({
   },
   methods: {
     async sendPrompt() {
-      console.log("Currently prompt is:" + this.prompt.query);
       await this.$axios
-        .$get("http://localhost:3000/prompt/")
+        .$post("http://localhost:3000/api/prompt/")
         .then((response) => {
           console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
         });
     },
   },
