@@ -13,6 +13,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "axios": "^0.21.1",
     "core-js": "^3.25.3",
+    "flowbite": "^1.8.1",
     "nuxt": "^2.15.8",
     "openai": "^3.1.0",
     "openapi": "^1.0.1",

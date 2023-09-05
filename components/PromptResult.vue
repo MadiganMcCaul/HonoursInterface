@@ -3,10 +3,10 @@
     id="Prompt-Result-Container"
     class="flex w-2/4 bg-slate-700 overflow-y-auto"
   >
-    <div id="Prompt-Result-Text" class="">
-      <h1>GPT API Result:</h1>
-      <p v-if="$store.state.prompt.promptResults.length !== 0" > {{ $store.state.prompt.promptResults[0].promptResult.choices[0].message.content }}</p>
-      <p v-if="$store.state.prompt.promptResults.length === 0">Result Pending</p>
+    <div id="Prompt-Result-Text" class=" p-4">
+      <h1 class="text-white" >GPT API Result:</h1>
+      <p class="text-white"  v-if="$store.state.prompt.promptResults.length !== 0" > {{ $store.state.prompt.promptResults[0].promptResult.choices[0].message.content }}</p>
+      <p class="text-white" v-if="$store.state.prompt.promptResults.length === 0">Result Pending</p>
     </div>
   </div>
 </template>
