@@ -35,28 +35,27 @@ export default Vue.extend({
     selectedItemChanged(selectedItem: string) {
       this.selectedItem = selectedItem;
       this.$emit("selectedItemChanged", this.selectedItem);
-      console.log(this.selectedItem);
     },
     handleExperimentContext() {
       if (this.selectedItem == "experiment1") {
         return "The unaugmented Large Language Model program will receive each transcript from the Client-Modified data set, and asked at each client utterance to identify whether the utterance is an instance of Change Talk or not. Performance will be evaluated numerically for correct responses (identifying “real” Change Talk, and not misidentifying any other utterances). This experiment assesses a skill required for an Interviewer chatbot, as a Motivational Interviewer must be able to identify instances of Change Talk whenever they occur." as String;
       } else if (this.selectedItem == "experiment2") {
-        return "";
+        return "The program will receive each transcript from the Original Set, one line at a time, until just before the Change Talk instance, and will be asked to generate a remark that the client would make at this point in the interview that would exemplify Change Talk. Performance will be evaluated by numerical expert rating for relevance to the underlying health behaviour. This experiment assesses a skill required for a Teaching chatbot, as it will play the role of the client.";
       } else if (this.selectedItem == "experiment3") {
-        return "";
+        return "The program will receive each transcript from the Original Set, one line at a time, including the Change Talk instance, and will be asked to generate a response for the interviewer to make next. Performance will be evaluated using the MITI code. This experiment assesses a skill required for an Interviewer chatbot, namely responding appropriately and safely to support change talk.";
       } else if (this.selectedItem == "experiment4") {
-        return "";
+        return "The program will receive each transcript from the Interviewer-Modified data set up to the interviewer response to the Change Talk instance, and will be asked to evaluate the quality of the interviewer response in terms of the spirit and techniques of Motivational Interviewing. Performance will be evaluated using the MITI for soundness and completeness.";
       }
     },
     handleExperimentContextTitle() {
       if (this.selectedItem == "experiment1") {
         return "EXPERIMENT 1: Detecting Change Talk";
       } else if (this.selectedItem == "experiment2") {
-        return "";
+        return "EXPERIMENT 2: Generating Change Talk";
       } else if (this.selectedItem == "experiment3") {
-        return "";
+        return "EXPERIMENT 3: Responding to Change Talk";
       } else if (this.selectedItem == "experiment4") {
-        return "";
+        return "EXPERIMENT 4: Evaluating Change Talk";
       }
     },
   },
