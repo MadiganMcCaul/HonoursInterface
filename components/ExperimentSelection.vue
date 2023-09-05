@@ -18,6 +18,7 @@
     <div id="Experiment-Context" class="flex flex-col w-4/5 h-4/5 bg-slate-800">
       <p class="p-4 text-gray-50">{{ handleExperimentContextTitle() }}</p>
       <p class="p-4 text-gray-50">{{ handleExperimentContext() }}</p>
+      <p class="p-4 text-gray-50">TODO: Add Brief Instructions?</p>
     </div>
   </div>
 </template>
